@@ -1,0 +1,527 @@
+2025-08-08 19:16:07,835 - INFO - Данные успешно загружены. Размер: (6362620, 11)
+2025-08-08 19:16:09,773 - INFO - 
+Отчет о классификации:
+2025-08-08 19:16:09,777 - INFO -               precision    recall  f1-score   support
+
+           0       1.00      1.00      1.00      4926
+           1       1.00      1.00      1.00      2466
+
+    accuracy                           1.00      7392
+   macro avg       1.00      1.00      1.00      7392
+weighted avg       1.00      1.00      1.00      7392
+
+2025-08-08 19:16:09,777 - INFO - 
+Матрица ошибок:
+2025-08-08 19:16:09,779 - INFO - [[4926    0]
+ [   9 2457]]
+2025-08-08 19:16:09,782 - INFO - 
+ROC-AUC: 0.9998
+2025-08-08 19:16:09,929 - INFO - Модель сохранена в model.joblib
+2025-08-08 19:16:09,981 - INFO - 
+Обычная дневная транзакция:
+2025-08-08 19:16:09,981 - INFO - Вероятность мошенничества: 2.26%
+2025-08-08 19:16:10,019 - INFO - 
+Подозрительная ночная транзакция:
+2025-08-08 19:16:10,019 - INFO - Вероятность мошенничества: 66.03%
+2025-08-08 19:18:31,793 - INFO - Данные успешно загружены. Размер: (6362620, 11)
+2025-08-08 19:18:33,516 - INFO - 
+Отчет о классификации:
+2025-08-08 19:18:33,519 - INFO -               precision    recall  f1-score   support
+
+           0       1.00      1.00      1.00      4926
+           1       1.00      1.00      1.00      2466
+
+    accuracy                           1.00      7392
+   macro avg       1.00      1.00      1.00      7392
+weighted avg       1.00      1.00      1.00      7392
+
+2025-08-08 19:18:33,519 - INFO - 
+Матрица ошибок:
+2025-08-08 19:18:33,520 - INFO - [[4926    0]
+ [   9 2457]]
+2025-08-08 19:18:33,521 - INFO - 
+ROC-AUC: 0.9998
+2025-08-08 19:18:33,648 - INFO - Модель сохранена в model.joblib
+2025-08-08 19:18:33,687 - INFO - 
+Обычная дневная транзакция:
+2025-08-08 19:18:33,687 - INFO - Вероятность мошенничества: 2.26%
+2025-08-08 19:18:33,703 - INFO - 
+Подозрительная ночная транзакция:
+2025-08-08 19:18:33,703 - INFO - Вероятность мошенничества: 66.03%
+2025-08-08 19:21:32,204 - INFO - Данные успешно загружены. Размер: (6362620, 11)
+2025-08-08 19:21:33,984 - INFO - 
+Отчет о классификации:
+2025-08-08 19:21:33,988 - INFO -               precision    recall  f1-score   support
+
+           0       1.00      1.00      1.00      4926
+           1       1.00      1.00      1.00      2466
+
+    accuracy                           1.00      7392
+   macro avg       1.00      1.00      1.00      7392
+weighted avg       1.00      1.00      1.00      7392
+
+2025-08-08 19:21:33,988 - INFO - 
+Матрица ошибок:
+2025-08-08 19:21:33,989 - INFO - [[4926    0]
+ [   9 2457]]
+2025-08-08 19:21:33,990 - INFO - 
+ROC-AUC: 0.9998
+2025-08-08 19:21:34,129 - INFO - Модель сохранена в model.joblib
+2025-08-08 19:21:34,169 - INFO - 
+Обычная дневная транзакция:
+2025-08-08 19:21:34,169 - INFO - Вероятность мошенничества: 2.26%
+2025-08-08 19:21:34,169 - INFO - Уровень риска:  Низкий
+2025-08-08 19:21:34,185 - INFO - 
+Подозрительная ночная транзакция:
+2025-08-08 19:21:34,185 - INFO - Вероятность мошенничества: 66.03%
+2025-08-08 19:21:34,185 - INFO - Уровень риска:  Средний
+2025-08-08 19:26:18,084 - INFO - Данные успешно загружены. Размер: (6362620, 11)
+2025-08-08 19:26:19,992 - INFO - 
+Отчет о классификации:
+2025-08-08 19:26:19,996 - INFO -               precision    recall  f1-score   support
+
+           0       1.00      1.00      1.00      4926
+           1       1.00      1.00      1.00      2466
+
+    accuracy                           1.00      7392
+   macro avg       1.00      1.00      1.00      7392
+weighted avg       1.00      1.00      1.00      7392
+
+2025-08-08 19:26:19,996 - INFO - 
+Матрица ошибок:
+2025-08-08 19:26:19,996 - INFO - [[4926    0]
+ [   9 2457]]
+2025-08-08 19:26:19,998 - INFO - 
+ROC-AUC: 0.9998
+2025-08-08 19:26:20,157 - INFO - Модель сохранена в model.joblib
+2025-08-08 19:26:20,209 - INFO - 
+Обычная дневная транзакция:
+2025-08-08 19:26:20,209 - INFO - Вероятность мошенничества: 2.26%
+2025-08-08 19:26:20,209 - INFO - Уровень риска:  Низкий
+2025-08-08 19:26:59,232 - INFO - Данные успешно загружены. Размер: (6362620, 11)
+2025-08-08 19:27:01,926 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-08-08 19:27:03,416 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-08-08 19:27:06,781 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-08-08 19:27:08,543 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-08-08 19:27:11,726 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-08-08 19:27:13,430 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-08-08 19:27:17,215 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-08-08 19:27:19,005 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-08-08 19:27:20,237 - INFO - Визуализации сохранены в директорию: visualizations
+2025-08-08 19:27:21,342 - INFO - 
+Отчет о классификации:
+2025-08-08 19:27:21,346 - INFO -               precision    recall  f1-score   support
+
+           0       1.00      1.00      1.00      4926
+           1       1.00      1.00      1.00      2466
+
+    accuracy                           1.00      7392
+   macro avg       1.00      1.00      1.00      7392
+weighted avg       1.00      1.00      1.00      7392
+
+2025-08-08 19:27:21,346 - INFO - 
+Матрица ошибок:
+2025-08-08 19:27:21,346 - INFO - [[4926    0]
+ [   9 2457]]
+2025-08-08 19:27:21,348 - INFO - 
+ROC-AUC: 0.9998
+2025-08-08 19:27:21,462 - INFO - Модель сохранена в model.joblib
+2025-08-08 19:27:21,511 - INFO - 
+Обычная дневная транзакция:
+2025-08-08 19:27:21,511 - INFO - Вероятность мошенничества: 2.26%
+2025-08-08 19:27:21,511 - INFO - Уровень риска:  Низкий
+2025-08-08 19:27:21,528 - INFO - 
+Подозрительная ночная транзакция:
+2025-08-08 19:27:21,528 - INFO - Вероятность мошенничества: 66.03%
+2025-08-08 19:27:21,528 - INFO - Уровень риска:  Средний
+2025-08-08 19:32:39,706 - INFO - Данные успешно загружены. Размер: (6362620, 11)
+2025-08-08 19:32:42,462 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-08-08 19:32:43,993 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-08-08 19:32:44,658 - INFO - Визуализации сохранены в visualizations: fraud_distribution.png, feature_importance.png
+2025-08-08 19:32:45,781 - INFO - 
+Отчет о классификации:
+2025-08-08 19:32:45,785 - INFO -               precision    recall  f1-score   support
+
+           0       1.00      1.00      1.00      4926
+           1       1.00      1.00      1.00      2466
+
+    accuracy                           1.00      7392
+   macro avg       1.00      1.00      1.00      7392
+weighted avg       1.00      1.00      1.00      7392
+
+2025-08-08 19:32:45,785 - INFO - 
+Матрица ошибок:
+2025-08-08 19:32:45,785 - INFO - [[4926    0]
+ [   9 2457]]
+2025-08-08 19:32:45,787 - INFO - 
+ROC-AUC: 0.9998
+2025-08-08 19:32:45,918 - INFO - Модель сохранена в model.joblib
+2025-08-08 19:32:45,957 - INFO - 
+Обычная дневная транзакция:
+2025-08-08 19:32:45,957 - INFO - Вероятность мошенничества: 2.26%
+2025-08-08 19:32:45,957 - INFO - Уровень риска:  Низкий
+2025-08-08 19:32:45,974 - INFO - 
+Подозрительная ночная транзакция:
+2025-08-08 19:32:45,974 - INFO - Вероятность мошенничества: 66.03%
+2025-08-08 19:32:45,974 - INFO - Уровень риска:  Средний
+2025-08-08 19:34:45,931 - INFO - Данные успешно загружены. Размер: (6362620, 11)
+2025-08-08 19:34:47,758 - INFO - 
+Отчет о классификации:
+2025-08-08 19:34:47,762 - INFO -               precision    recall  f1-score   support
+
+           0       1.00      1.00      1.00      4926
+           1       1.00      1.00      1.00      2466
+
+    accuracy                           1.00      7392
+   macro avg       1.00      1.00      1.00      7392
+weighted avg       1.00      1.00      1.00      7392
+
+2025-08-08 19:34:47,762 - INFO - 
+Матрица ошибок:
+2025-08-08 19:34:47,762 - INFO - [[4926    0]
+ [   9 2457]]
+2025-08-08 19:34:47,764 - INFO - 
+ROC-AUC: 0.9998
+2025-08-08 19:34:47,890 - INFO - Модель сохранена в model.joblib
+2025-08-08 19:34:49,882 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-08-08 19:34:51,433 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-08-08 19:34:52,288 - INFO - Визуализации сохранены в visualizations: fraud_distribution.png, feature_importance.png
+2025-08-08 19:34:52,307 - INFO - 
+Обычная дневная транзакция:
+2025-08-08 19:34:52,307 - INFO - Вероятность мошенничества: 2.26%
+2025-08-08 19:34:52,308 - INFO - Уровень риска:  Низкий
+2025-08-08 19:34:52,326 - INFO - 
+Подозрительная ночная транзакция:
+2025-08-08 19:34:52,326 - INFO - Вероятность мошенничества: 66.03%
+2025-08-08 19:34:52,326 - INFO - Уровень риска:  Средний
+2025-08-08 19:35:55,270 - INFO - Данные успешно загружены. Размер: (6362620, 11)
+2025-08-08 19:35:57,094 - INFO - 
+Отчет о классификации:
+2025-08-08 19:35:57,098 - INFO -               precision    recall  f1-score   support
+
+           0       1.00      1.00      1.00      4926
+           1       1.00      1.00      1.00      2466
+
+    accuracy                           1.00      7392
+   macro avg       1.00      1.00      1.00      7392
+weighted avg       1.00      1.00      1.00      7392
+
+2025-08-08 19:35:57,098 - INFO - 
+Матрица ошибок:
+2025-08-08 19:35:57,098 - INFO - [[4926    0]
+ [   9 2457]]
+2025-08-08 19:35:57,100 - INFO - 
+ROC-AUC: 0.9998
+2025-08-08 19:35:57,255 - INFO - Модель сохранена в model.joblib
+2025-08-08 19:35:59,580 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-08-08 19:36:00,935 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-08-08 19:36:01,797 - INFO - Визуализации сохранены в visualizations: fraud_distribution.png, feature_importance.png
+2025-08-08 19:36:01,817 - INFO - 
+Обычная дневная транзакция:
+2025-08-08 19:36:01,817 - INFO - Вероятность мошенничества: 2.26%
+2025-08-08 19:36:01,817 - INFO - Уровень риска:  Низкий
+2025-08-08 19:36:01,834 - INFO - 
+Подозрительная ночная транзакция:
+2025-08-08 19:36:01,834 - INFO - Вероятность мошенничества: 66.03%
+2025-08-08 19:36:01,834 - INFO - Уровень риска:  Средний
+2025-08-08 19:41:27,657 - INFO - Данные успешно загружены. Размер: (6362620, 11)
+2025-08-08 19:41:29,669 - INFO - 
+Отчет о классификации:
+2025-08-08 19:41:29,673 - INFO -               precision    recall  f1-score   support
+
+           0       1.00      1.00      1.00      4926
+           1       1.00      1.00      1.00      2466
+
+    accuracy                           1.00      7392
+   macro avg       1.00      1.00      1.00      7392
+weighted avg       1.00      1.00      1.00      7392
+
+2025-08-08 19:41:29,673 - INFO - 
+Матрица ошибок:
+2025-08-08 19:41:29,673 - INFO - [[4926    0]
+ [   9 2457]]
+2025-08-08 19:41:29,675 - INFO - 
+ROC-AUC: 0.9998
+2025-08-08 19:41:29,818 - INFO - Модель сохранена в model.joblib
+2025-08-08 19:41:32,319 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-08-08 19:41:33,700 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-08-08 19:41:34,565 - INFO - Визуализации сохранены в visualizations: fraud_distribution.png, feature_importance.png
+2025-08-08 19:41:34,585 - INFO - 
+Обычная дневная транзакция:
+2025-08-08 19:41:34,585 - INFO - Вероятность мошенничества: 2.26%
+2025-08-08 19:41:34,585 - INFO - Уровень риска:  Низкий
+2025-08-08 19:41:34,602 - INFO - 
+Подозрительная ночная транзакция:
+2025-08-08 19:41:34,602 - INFO - Вероятность мошенничества: 66.03%
+2025-08-08 19:41:34,602 - INFO - Уровень риска:  Средний
+2025-08-08 20:00:41,280 - INFO - Данные успешно загружены. Размер: (6362620, 11)
+2025-08-08 20:00:43,070 - INFO - 
+Отчет о классификации:
+2025-08-08 20:00:43,073 - INFO -               precision    recall  f1-score   support
+
+           0       1.00      1.00      1.00      4926
+           1       1.00      1.00      1.00      2466
+
+    accuracy                           1.00      7392
+   macro avg       1.00      1.00      1.00      7392
+weighted avg       1.00      1.00      1.00      7392
+
+2025-08-08 20:00:43,073 - INFO - 
+Матрица ошибок:
+2025-08-08 20:00:43,074 - INFO - [[4926    0]
+ [   9 2457]]
+2025-08-08 20:00:43,075 - INFO - 
+ROC-AUC: 0.9998
+2025-08-08 20:00:43,233 - INFO - Модель сохранена в model.joblib
+2025-08-08 20:00:45,639 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-08-08 20:00:46,938 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-08-08 20:00:50,338 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-08-08 20:00:51,655 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-08-08 20:00:52,385 - INFO - Визуализации сохранены в visualizations: fraud_distribution.png, feature_importance.png
+2025-08-08 20:00:52,557 - INFO - 
+Обычная дневная транзакция:
+2025-08-08 20:00:52,557 - INFO - Вероятность мошенничества: 2.26%
+2025-08-08 20:00:52,557 - INFO - Уровень риска:  Низкий
+2025-08-08 20:00:52,576 - INFO - 
+Подозрительная ночная транзакция:
+2025-08-08 20:00:52,576 - INFO - Вероятность мошенничества: 66.03%
+2025-08-08 20:00:52,576 - INFO - Уровень риска:  Средний
+2025-08-11 16:26:38,882 - INFO - Данные успешно загружены. Размер: (6362620, 11)
+2025-08-11 16:26:40,686 - INFO - 
+Отчет о классификации:
+2025-08-11 16:26:40,690 - INFO -               precision    recall  f1-score   support
+
+           0       1.00      1.00      1.00      4926
+           1       1.00      1.00      1.00      2466
+
+    accuracy                           1.00      7392
+   macro avg       1.00      1.00      1.00      7392
+weighted avg       1.00      1.00      1.00      7392
+
+2025-08-11 16:26:40,690 - INFO - 
+Матрица ошибок:
+2025-08-11 16:26:40,693 - INFO - [[4926    0]
+ [   9 2457]]
+2025-08-11 16:26:40,695 - INFO - 
+ROC-AUC: 0.9998
+2025-08-11 16:26:40,745 - INFO - Модель сохранена в model.joblib
+2025-08-11 16:26:43,122 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-08-11 16:26:44,457 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-08-11 16:26:47,760 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-08-11 16:26:49,076 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-08-11 16:26:49,731 - INFO - Визуализации сохранены в visualizations: fraud_distribution.png, feature_importance.png
+2025-08-11 16:26:49,750 - INFO - 
+Обычная дневная транзакция:
+2025-08-11 16:26:49,750 - INFO - Вероятность мошенничества: 2.26%
+2025-08-11 16:26:49,750 - INFO - Уровень риска:  Низкий
+2025-08-11 16:26:49,766 - INFO - 
+Подозрительная ночная транзакция:
+2025-08-11 16:26:49,766 - INFO - Вероятность мошенничества: 66.03%
+2025-08-11 16:26:49,766 - INFO - Уровень риска:  Средний
+2025-08-11 16:28:18,550 - INFO - Данные успешно загружены. Размер: (6362620, 11)
+2025-08-11 16:28:20,359 - INFO - 
+Отчет о классификации:
+2025-08-11 16:28:20,363 - INFO -               precision    recall  f1-score   support
+
+           0       1.00      1.00      1.00      4926
+           1       1.00      1.00      1.00      2466
+
+    accuracy                           1.00      7392
+   macro avg       1.00      1.00      1.00      7392
+weighted avg       1.00      1.00      1.00      7392
+
+2025-08-11 16:28:20,363 - INFO - 
+Матрица ошибок:
+2025-08-11 16:28:20,363 - INFO - [[4926    0]
+ [   9 2457]]
+2025-08-11 16:28:20,365 - INFO - 
+ROC-AUC: 0.9998
+2025-08-11 16:28:20,413 - INFO - Модель сохранена в model.joblib
+2025-08-11 16:28:22,495 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-08-11 16:28:24,017 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-08-11 16:28:26,992 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-08-11 16:28:28,543 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-08-11 16:28:29,320 - INFO - Визуализации сохранены в visualizations: fraud_distribution.png, feature_importance.png
+2025-08-11 16:28:29,482 - INFO - 
+Обычная дневная транзакция:
+2025-08-11 16:28:29,482 - INFO - Вероятность мошенничества: 2.26%
+2025-08-11 16:28:29,482 - INFO - Уровень риска:  Низкий
+2025-08-11 16:28:29,499 - INFO - 
+Подозрительная ночная транзакция:
+2025-08-11 16:28:29,499 - INFO - Вероятность мошенничества: 66.03%
+2025-08-11 16:28:29,499 - INFO - Уровень риска:  Средний
+2025-08-11 16:29:09,762 - INFO - Данные успешно загружены. Размер: (6362620, 11)
+2025-08-11 16:29:11,537 - INFO - 
+Отчет о классификации:
+2025-08-11 16:29:11,540 - INFO -               precision    recall  f1-score   support
+
+           0       1.00      1.00      1.00      4926
+           1       1.00      1.00      1.00      2466
+
+    accuracy                           1.00      7392
+   macro avg       1.00      1.00      1.00      7392
+weighted avg       1.00      1.00      1.00      7392
+
+2025-08-11 16:29:11,540 - INFO - 
+Матрица ошибок:
+2025-08-11 16:29:11,541 - INFO - [[4926    0]
+ [   9 2457]]
+2025-08-11 16:29:11,542 - INFO - 
+ROC-AUC: 0.9998
+2025-08-11 16:29:11,594 - INFO - Модель сохранена в model.joblib
+2025-08-11 16:29:13,736 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-08-11 16:29:15,294 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-08-11 16:29:18,370 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-08-11 16:29:19,950 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-08-11 16:29:20,660 - ERROR - Ошибка при визуализации данных: Could not interpret value `Важность` for `x`. An entry with this name does not appear in `data`.
+2025-08-11 16:29:20,660 - ERROR - Критическая ошибка: Could not interpret value `Важность` for `x`. An entry with this name does not appear in `data`.
+2025-08-11 16:30:49,540 - INFO - Данные успешно загружены. Размер: (6362620, 11)
+2025-08-11 16:30:51,361 - INFO - 
+Отчет о классификации:
+2025-08-11 16:30:51,365 - INFO -               precision    recall  f1-score   support
+
+           0       1.00      1.00      1.00      4926
+           1       1.00      1.00      1.00      2466
+
+    accuracy                           1.00      7392
+   macro avg       1.00      1.00      1.00      7392
+weighted avg       1.00      1.00      1.00      7392
+
+2025-08-11 16:30:51,365 - INFO - 
+Матрица ошибок:
+2025-08-11 16:30:51,365 - INFO - [[4926    0]
+ [   9 2457]]
+2025-08-11 16:30:51,367 - INFO - 
+ROC-AUC: 0.9998
+2025-08-11 16:30:51,414 - INFO - Модель сохранена в model.joblib
+2025-08-11 16:30:53,759 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-08-11 16:30:55,033 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-08-11 16:30:58,316 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-08-11 16:30:59,627 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-08-11 16:31:00,392 - INFO - Визуализации сохранены в visualizations: fraud_distribution.png, transaction_types.png, feature_importance.png
+2025-08-11 16:31:00,552 - INFO - 
+Обычная дневная транзакция:
+2025-08-11 16:31:00,553 - INFO - Вероятность мошенничества: 2.26%
+2025-08-11 16:31:00,553 - INFO - Уровень риска:  Низкий
+2025-08-11 16:31:00,571 - INFO - 
+Подозрительная ночная транзакция:
+2025-08-11 16:31:00,571 - INFO - Вероятность мошенничества: 66.03%
+2025-08-11 16:31:00,571 - INFO - Уровень риска:  Средний
+2025-08-11 16:42:25,037 - INFO - Данные успешно загружены. Размер: (6362620, 11)
+2025-08-11 16:42:26,838 - INFO - 
+Отчет о классификации:
+2025-08-11 16:42:26,841 - INFO -               precision    recall  f1-score   support
+
+           0       1.00      1.00      1.00      4926
+           1       1.00      1.00      1.00      2466
+
+    accuracy                           1.00      7392
+   macro avg       1.00      1.00      1.00      7392
+weighted avg       1.00      1.00      1.00      7392
+
+2025-08-11 16:42:26,841 - INFO - 
+Матрица ошибок:
+2025-08-11 16:42:26,842 - INFO - [[4926    0]
+ [   9 2457]]
+2025-08-11 16:42:26,843 - INFO - 
+ROC-AUC: 0.9998
+2025-08-11 16:42:26,893 - INFO - Модель сохранена в model.joblib
+2025-08-11 16:42:29,023 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-08-11 16:42:30,563 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-08-11 16:42:33,566 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-08-11 16:42:35,097 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-08-11 16:42:35,848 - INFO - Визуализации сохранены в visualizations: fraud_distribution.png, transaction_types.png, feature_importance.png
+2025-08-11 16:42:36,004 - INFO - 
+Обычная дневная транзакция:
+2025-08-11 16:42:36,004 - INFO - Вероятность мошенничества: 2.26%
+2025-08-11 16:42:36,005 - INFO - Уровень риска:  Низкий
+2025-08-11 16:42:36,022 - INFO - 
+Подозрительная ночная транзакция:
+2025-08-11 16:42:36,022 - INFO - Вероятность мошенничества: 66.03%
+2025-08-11 16:42:36,022 - INFO - Уровень риска:  Средний
+2025-08-11 17:20:50,042 - INFO - Данные успешно загружены. Размер: (6362620, 11)
+2025-08-11 17:20:51,876 - INFO - 
+Отчет о классификации:
+2025-08-11 17:20:51,879 - INFO -               precision    recall  f1-score   support
+
+           0       1.00      1.00      1.00      4926
+           1       1.00      1.00      1.00      2466
+
+    accuracy                           1.00      7392
+   macro avg       1.00      1.00      1.00      7392
+weighted avg       1.00      1.00      1.00      7392
+
+2025-08-11 17:20:51,879 - INFO - 
+Матрица ошибок:
+2025-08-11 17:20:51,880 - INFO - [[4926    0]
+ [   9 2457]]
+2025-08-11 17:20:51,882 - INFO - 
+ROC-AUC: 0.9998
+2025-08-11 17:20:51,918 - INFO - Модель сохранена в model.joblib
+2025-08-11 17:20:54,305 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-08-11 17:20:55,640 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-08-11 17:20:58,945 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-08-11 17:21:00,476 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-08-11 17:21:01,165 - ERROR - Ошибка при визуализации данных: Could not interpret value `Важность` for `x`. An entry with this name does not appear in `data`.
+2025-08-11 17:21:01,165 - ERROR - Критическая ошибка: Could not interpret value `Важность` for `x`. An entry with this name does not appear in `data`.
+2025-08-11 17:42:35,795 - INFO - Данные успешно загружены. Размер: (6362620, 11)
+2025-08-11 17:42:36,621 - INFO - Модель загружена из model.joblib. Время сохранения: 2025-08-11 17:20:51
+2025-08-11 17:42:38,982 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-08-11 17:42:40,313 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-08-11 17:42:43,630 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-08-11 17:42:44,945 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-08-11 17:42:45,633 - ERROR - Ошибка при визуализации данных: Could not interpret value `Важность` for `x`. An entry with this name does not appear in `data`.
+2025-08-11 17:42:45,633 - ERROR - Критическая ошибка: Could not interpret value `Важность` for `x`. An entry with this name does not appear in `data`.
+2025-08-11 17:43:35,557 - INFO - Данные успешно загружены. Размер: (6362620, 11)
+2025-08-11 17:43:36,345 - INFO - Модель загружена из model.joblib. Время сохранения: 2025-08-11 17:20:51
+2025-08-11 17:43:38,707 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-08-11 17:43:40,100 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-08-11 17:43:43,463 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-08-11 17:43:44,807 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-08-11 17:43:45,568 - INFO - Визуализации сохранены в visualizations: fraud_distribution.png, transaction_types.png, feature_importance.png
+2025-08-11 17:43:45,588 - INFO - 
+Обычная дневная транзакция:
+2025-08-11 17:43:45,588 - INFO - Вероятность мошенничества: 2.26%
+2025-08-11 17:43:45,588 - INFO - Уровень риска:  Низкий
+2025-08-11 17:43:45,605 - INFO - 
+Подозрительная ночная транзакция:
+2025-08-11 17:43:45,605 - INFO - Вероятность мошенничества: 66.03%
+2025-08-11 17:43:45,605 - INFO - Уровень риска:  Средний
+2025-08-12 12:18:10,591 - INFO - Данные успешно загружены. Размер: (6362620, 11)
+2025-08-12 12:18:11,472 - INFO - Модель загружена из model.joblib. Время сохранения: 2025-08-11 17:20:51
+2025-08-12 12:18:13,561 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-08-12 12:18:15,120 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-08-12 12:18:18,181 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-08-12 12:18:19,702 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-08-12 12:18:20,488 - INFO - Визуализации сохранены в visualizations: fraud_distribution.png, transaction_types.png, feature_importance.png
+2025-08-12 12:18:20,518 - INFO - 
+Обычная дневная транзакция:
+2025-08-12 12:18:20,518 - INFO - Вероятность мошенничества: 2.26%
+2025-08-12 12:18:20,518 - INFO - Уровень риска:  Низкий
+2025-08-12 12:18:20,534 - INFO - 
+Подозрительная ночная транзакция:
+2025-08-12 12:18:20,534 - INFO - Вероятность мошенничества: 66.03%
+2025-08-12 12:18:20,534 - INFO - Уровень риска:  Средний
+2025-08-12 12:23:27,560 - INFO - Данные успешно загружены. Размер: (6362620, 11)
+2025-08-12 12:23:28,343 - INFO - Модель загружена из model.joblib. Время сохранения: 2025-08-11 17:20:51
+2025-08-12 12:23:30,684 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-08-12 12:23:31,976 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-08-12 12:23:35,174 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-08-12 12:23:36,457 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-08-12 12:23:37,102 - ERROR - Ошибка при визуализации данных: Could not interpret value `Важность` for `x`. An entry with this name does not appear in `data`.
+2025-08-12 12:23:37,103 - ERROR - Критическая ошибка: Could not interpret value `Важность` for `x`. An entry with this name does not appear in `data`.
+2025-08-12 12:23:53,609 - INFO - Данные успешно загружены. Размер: (6362620, 11)
+2025-08-12 12:23:54,399 - INFO - Модель загружена из model.joblib. Время сохранения: 2025-08-11 17:20:51
+2025-08-12 12:23:56,441 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-08-12 12:23:57,943 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-08-12 12:24:00,846 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-08-12 12:24:02,350 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-08-12 12:24:03,081 - INFO - Визуализации сохранены в visualizations: fraud_distribution.png, transaction_types.png, feature_importance.png
+2025-08-12 12:24:03,105 - INFO - 
+Обычная дневная транзакция:
+2025-08-12 12:24:03,105 - INFO - Вероятность мошенничества: 2.26%
+2025-08-12 12:24:03,105 - INFO - Уровень риска:  Низкий
+2025-08-12 12:24:03,124 - INFO - 
+Подозрительная ночная транзакция:
+2025-08-12 12:24:03,124 - INFO - Вероятность мошенничества: 66.03%
+2025-08-12 12:24:03,124 - INFO - Уровень риска:  Средний
