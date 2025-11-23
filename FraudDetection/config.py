@@ -57,16 +57,34 @@ LOG_FORMAT = '%(asctime)s - %(levelname)s - %(message)s'
 # Тестовые кейсы
 TEST_CASES = [
     {
-        'description': "Обычная дневная транзакция",
-        'step': 50, 'type': 'PAYMENT', 'amount': 1000,
-        'oldbalanceOrg': 50000, 'newbalanceOrig': 49000,
-        'oldbalanceDest': 1000, 'newbalanceDest': 2000,
+        'description': "Обычная дневная транзакция (маленький платёж)",
+        'step': 50, 'type': 'PAYMENT', 'amount': 1200,
+        'oldbalanceOrg': 34200, 'newbalanceOrig': 33000,
+        'oldbalanceDest': 0, 'newbalanceDest': 0,
     },
     {
-        'description': "Подозрительная ночная транзакция",
-        'step': 120, 'type': 'TRANSFER', 'amount': 900000,
-        'oldbalanceOrg': 1000000, 'newbalanceOrig': 100000,
-        'oldbalanceDest': 0, 'newbalanceDest': 900000,
+        'description': "Подозрительный перевод ночью всей суммы на счёте",
+        'step': 5, 'type': 'TRANSFER', 'amount': 1250000,
+        'oldbalanceOrg': 1250000, 'newbalanceOrig': 0,
+        'oldbalanceDest': 0, 'newbalanceDest': 1250000,
+    },
+    {
+        'description': "Обычное пополнение днём (CASH_IN)",
+        'step': 180, 'type': 'CASH_IN', 'amount': 50000,
+        'oldbalanceOrg': 15000, 'newbalanceOrig': 65000,
+        'oldbalanceDest': 0, 'newbalanceDest': 0,
+    },
+    {
+        'description': "Очень большая сумма ночью + обнуление счёта (классическое мошенничество)",
+        'step': 23, 'type': 'TRANSFER', 'amount': 2800000,
+        'oldbalanceOrg': 2800000, 'newbalanceOrig': 0,
+        'oldbalanceDest': 120000, 'newbalanceDest': 2920000,
+    },
+    {
+        'description': "Мелкий вывод наличных днём — норма",
+        'step': 95, 'type': 'CASH_OUT', 'amount': 8000,
+        'oldbalanceOrg': 45000, 'newbalanceOrig': 37000,
+        'oldbalanceDest': 0, 'newbalanceDest': 0,
     }
 ]
 

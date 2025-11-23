@@ -182,3 +182,30 @@ ROC-AUC: 0.9998
 Подозрительная ночная транзакция:
 2025-11-23 15:34:01,946 - INFO - Вероятность мошенничества: 85.5842%
 2025-11-23 15:34:01,946 - INFO - Уровень риска: ВЫСОКИЙ
+2025-11-23 16:13:29,758 - INFO - Данные успешно загружены. Размер: (6362620, 11)
+2025-11-23 16:13:30,848 - INFO - Нейросеть загружена из C:\Users\Honor\Desktop\FraudDetection\models\model.joblib. Время: 2025-11-23 15:33:53
+2025-11-23 16:13:34,391 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-11-23 16:13:36,301 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-11-23 16:13:40,485 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-11-23 16:13:42,266 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-11-23 16:13:43,224 - INFO - Визуализации сохранены в C:\Users\Honor\Desktop\FraudDetection\visualizations
+2025-11-23 16:13:43,380 - INFO - 
+Обычная дневная транзакция (маленький платёж):
+2025-11-23 16:13:43,380 - INFO - Вероятность мошенничества: 0.3345%
+2025-11-23 16:13:43,380 - INFO - Уровень риска: НИЗКИЙ
+2025-11-23 16:13:43,495 - INFO - 
+Подозрительный перевод ночью всей суммы на счёте:
+2025-11-23 16:13:43,495 - INFO - Вероятность мошенничества: 94.2945%
+2025-11-23 16:13:43,495 - INFO - Уровень риска: ВЫСОКИЙ
+2025-11-23 16:13:43,591 - INFO - 
+Обычное пополнение днём (CASH_IN):
+2025-11-23 16:13:43,591 - INFO - Вероятность мошенничества: 0.0060%
+2025-11-23 16:13:43,591 - INFO - Уровень риска: НИЗКИЙ
+2025-11-23 16:13:43,676 - INFO - 
+Очень большая сумма ночью + обнуление счёта (классическое мошенничество):
+2025-11-23 16:13:43,676 - INFO - Вероятность мошенничества: 88.5974%
+2025-11-23 16:13:43,676 - INFO - Уровень риска: ВЫСОКИЙ
+2025-11-23 16:13:43,773 - INFO - 
+Мелкий вывод наличных днём — норма:
+2025-11-23 16:13:43,773 - INFO - Вероятность мошенничества: 3.9449%
+2025-11-23 16:13:43,773 - INFO - Уровень риска: НИЗКИЙ
