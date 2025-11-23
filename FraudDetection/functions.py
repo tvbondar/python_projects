@@ -2,23 +2,29 @@ import os
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense, Dropout, BatchNormalization
+from tensorflow.keras.optimizers import Adam
+from tensorflow.keras.callbacks import EarlyStopping
+from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.metrics import classification_report, confusion_matrix, roc_auc_score
+from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, roc_auc_score
 from imblearn.under_sampling import RandomUnderSampler
 import joblib
 import logging
 from datetime import datetime
 import config
 
-
+# Основной класс системы обнаружения мошеннических транзакций.
 class FraudDetectionSystem:
     def __init__(self):
-        self.model = None
-        self.feature_importance = None
-        self.columns = None
-        self.high_amount_threshold = None  # Храним порог из обучения
+        self.model = None # Обученная нейронная сеть
+        self.feature_importance = None # Важность признаков
+        self.columns = None # Список признаков после предобработки
+        self.high_amount_threshold = None  # Порог для признака "большая сумма"
+        self.scaler = None   # StandardScaler для нормализации данных
 
+    # Загружает данные из CSV-файла.
     def load_data(self, data_path=None):
         data_path = data_path or config.DATA_PATH
         try:
@@ -35,39 +41,39 @@ class FraudDetectionSystem:
             logging.error(f"Ошибка загрузки данных: {str(e)}")
             raise
 
+    # Предобработка полного датасета
     def preprocess_data(self, df):
         try:
             df = df.drop(['nameOrig', 'nameDest', 'isFlaggedFraud'], axis=1, errors='ignore')
-            type_map = {'CASH_OUT': 1, 'PAYMENT': 2, 'CASH_IN': 3, 'TRANSFER': 4, 'DEBIT': 5}
-            df['type'] = df['type'].map(type_map).fillna(0)
+            # Кодирование типа транзакции по словарю из config
+            df['type'] = df['type'].map(config.TRANSACTION_TYPE_MAP).fillna(config.UNKNOWN_TYPE_VALUE)
             if df['type'].eq(0).any():
                 logging.warning("Обнаружены неизвестные типы транзакций, присвоено значение 0.")
 
-            # Сохраняем порог для одной транзакции
+            # Определяем порог "большой суммы"
             self.high_amount_threshold = df['amount'].quantile(config.HIGH_AMOUNT_PERCENTILE)
-
+            # Новые признаки
             df['balance_change_org'] = df['oldbalanceOrg'] - df['newbalanceOrig']
             df['balance_change_dest'] = df['newbalanceDest'] - df['oldbalanceDest']
             df['is_amount_high'] = (df['amount'] > self.high_amount_threshold).astype(int)
             df['hour'] = df['step'] % 24
             df['is_night'] = ((df['hour'] >= config.NIGHT_HOURS_START) | (df['hour'] <= config.NIGHT_HOURS_END)).astype(int)
             df['amount_to_balance_ratio'] = df['amount'] / (df['oldbalanceOrg'] + 1e-6)
-
+            # Сохраняем порядок и названия признаков
             self.columns = df.drop('isFraud', axis=1).columns.tolist()
             return df
         except Exception as e:
             logging.error(f"Ошибка предобработки: {str(e)}")
             raise
 
+    # Предобработка одной транзакции
     def preprocess_single(self, transaction_dict):
-        if self.high_amount_threshold is None:
-            raise ValueError("Сначала вызовите preprocess_data() для обучения порога is_amount_high")
+        if self.high_amount_threshold is None or not hasattr(self, 'scaler'):
+            raise ValueError("Модель не обучена или scaler не загружен")
 
         df = pd.DataFrame([transaction_dict])
         df = df.drop(['nameOrig', 'nameDest', 'isFlaggedFraud'], axis=1, errors='ignore')
-
-        type_map = {'CASH_OUT': 1, 'PAYMENT': 2, 'CASH_IN': 3, 'TRANSFER': 4, 'DEBIT': 5}
-        df['type'] = df['type'].map(type_map).fillna(0)
+        df['type'] = df['type'].map(config.TRANSACTION_TYPE_MAP).fillna(config.UNKNOWN_TYPE_VALUE)
 
         df['balance_change_org'] = df['oldbalanceOrg'] - df['newbalanceOrig']
         df['balance_change_dest'] = df['newbalanceDest'] - df['oldbalanceDest']
@@ -76,72 +82,110 @@ class FraudDetectionSystem:
         df['is_night'] = ((df['hour'] >= config.NIGHT_HOURS_START) | (df['hour'] <= config.NIGHT_HOURS_END)).astype(int)
         df['amount_to_balance_ratio'] = df['amount'] / (df['oldbalanceOrg'] + 1e-6)
 
-        return df[self.columns]
+        df = df[self.columns].copy()
+        df_scaled = self.scaler.transform(df.values)
+        return df_scaled
 
+    # Обучение нейронной сети
     def train_model(self, df, save_path=None):
         save_path = save_path or config.MODEL_PATH
         try:
-            X = df.drop('isFraud', axis=1)
-            y = df['isFraud']
+            X = df.drop('isFraud', axis=1).values.astype('float32')
+            y = df['isFraud'].values.astype('float32')
+
+            # Балансировка: уменьшаем количество легитимных транзакций
             undersample = RandomUnderSampler(sampling_strategy=0.5, random_state=42)
             X_balanced, y_balanced = undersample.fit_resample(X, y)
+
             X_train, X_test, y_train, y_test = train_test_split(
-                X_balanced, y_balanced, test_size=0.3, random_state=42)
+                X_balanced, y_balanced, test_size=0.3, random_state=42, stratify=y_balanced
+            )
 
-            self.model = RandomForestClassifier(**config.MODEL_PARAMS)
-            self.model.fit(X_train, y_train)
+            # Масштабирование — обязательно для нейросетей!
+            scaler = StandardScaler()
+            X_train = scaler.fit_transform(X_train)
+            X_test = scaler.transform(X_test)
+            self.scaler = scaler # Сохраняем для предсказаний
 
-            self._evaluate_model(X_test, y_test)
-            self._calculate_feature_importance(X_train)
+            input_dim = X_train.shape[1]
+
+            # Архитектура нейросети (из config)
+            model = Sequential([
+                Dense(config.MODEL_PARAMS["hidden_layers"][0], activation='relu', input_shape=(input_dim,)),
+                BatchNormalization(),
+                Dropout(config.MODEL_PARAMS["dropout"]),
+
+                Dense(config.MODEL_PARAMS["hidden_layers"][1], activation='relu'),
+                BatchNormalization(),
+                Dropout(config.MODEL_PARAMS["dropout"]),
+
+                Dense(config.MODEL_PARAMS["hidden_layers"][2], activation='relu'),
+                Dropout(config.MODEL_PARAMS["dropout"] // 2),
+
+                Dense(1, activation='sigmoid')  # выход — вероятность мошенничества
+            ])
+
+            model.compile(
+                optimizer=Adam(learning_rate=config.MODEL_PARAMS["learning_rate"]),
+                loss='binary_crossentropy',
+                metrics=['accuracy', 'auc']
+            )
+
+            early_stopping = EarlyStopping(
+                monitor='val_auc', mode='max', patience=10, restore_best_weights=True
+            )
+
+            logging.info(f"Начинаем обучение нейросети... признаков: {input_dim}")
+            history = model.fit(
+                X_train, y_train,
+                validation_data=(X_test, y_test),
+                epochs=config.MODEL_PARAMS["epochs"],
+                batch_size=config.MODEL_PARAMS["batch_size"],
+                callbacks=[early_stopping],
+                verbose=1
+            )
+
+            self.model = model
+            self.history = history
+
+            # Оценка качества
+            y_pred_proba = model.predict(X_test, verbose=0).ravel()
+            y_pred = (y_pred_proba > 0.5).astype(int)
+            auc_score = roc_auc_score(y_test, y_pred_proba)
+            logging.info(f"ROC-AUC на тесте: {roc_auc_score(y_test, y_pred_proba):.4f}")
+
             self._save_model(save_path)
+            logging.info("Нейросеть успешно обучена и сохранена!")
+            print("Обучение завершено. Результаты:")
+            print(f"ROC-AUC на тестовой выборке:     {auc_score:.4f}")
+            print(f"Accuracy:                        {accuracy_score(y_test, y_pred):.4f}")
+            print(f"Precision (мошенничество):       {precision_score(y_test, y_pred):.4f}")
+            print(f"Recall (мошенничество):          {recall_score(y_test, y_pred):.4f}")
+            print(f"F1-score:                        {f1_score(y_test, y_pred):.4f}")
+            print(f"Всего тестовых примеров:         {len(y_test)}")
+            print(f"Мошеннических в тесте:           {int(y_test.sum())} ({y_test.mean():.2%})")
+            print("=" * 60)
+            print("Модель сохранена → models/model.joblib")
+            print("Готово к использованию!\n")
         except Exception as e:
-            logging.error(f"Ошибка обучения модели: {str(e)}")
+            logging.error(f"Ошибка обучения нейросети: {str(e)}")
             raise
 
-    def _evaluate_model(self, X_test, y_test):
-        y_pred = self.model.predict(X_test)
-        y_proba = self.model.predict_proba(X_test)[:, 1]
-        logging.info("\nОтчет о классификации:")
-        logging.info(classification_report(y_test, y_pred))
-        logging.info("\nМатрица ошибок:")
-        logging.info(confusion_matrix(y_test, y_pred))
-        logging.info(f"\nROC-AUC: {roc_auc_score(y_test, y_proba):.4f}")
-
-    def _calculate_feature_importance(self, X_train):
-        self.feature_importance = pd.DataFrame({
-            'Feature': X_train.columns,
-            'Importance': self.model.feature_importances_
-        }).sort_values('Importance', ascending=False)
-
-        feature_names_ru = {
-            'type': 'Тип операции', 'amount': 'Сумма',
-            'oldbalanceOrg': 'Исходный баланс (отправитель)',
-            'newbalanceOrig': 'Новый баланс (отправитель)',
-            'oldbalanceDest': 'Исходный баланс (получатель)',
-            'newbalanceDest': 'Новый баланс (получатель)',
-            'balance_change_org': 'Изменение баланса (отправитель)',
-            'balance_change_dest': 'Изменение баланса (получатель)',
-            'is_amount_high': 'Высокая сумма (>99%-перцентиль)',
-            'hour': 'Час дня', 'step': 'Шаг(время)',
-            'is_night': 'Ночное время (22:00–6:00)',
-            'amount_to_balance_ratio': 'Отношение суммы к балансу'
-        }
-        self.feature_importance['Feature'] = self.feature_importance['Feature'].map(
-            lambda x: feature_names_ru.get(x, x)
-        )
-
+    # Сохраняет модель, scaler, метаданные в один joblib-файл
     def _save_model(self, path):
         model_meta = {
             'model': self.model,
-            'feature_importance': self.feature_importance,
+            'scaler': self.scaler,
+            'feature_importance': self.feature_importance if hasattr(self, 'feature_importance') else None,
             'columns': self.columns,
             'high_amount_threshold': self.high_amount_threshold,
             'timestamp': datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         }
         os.makedirs(os.path.dirname(path), exist_ok=True)
         joblib.dump(model_meta, path)
-        logging.info(f"Модель сохранена в {path}")
+        logging.info(f"Нейросеть сохранена в {path}")
 
+    # Загружает сохранённую модель и все метаданные
     def load_model(self, path=None):
         path = path or config.MODEL_PATH
         try:
@@ -149,27 +193,29 @@ class FraudDetectionSystem:
                 raise FileNotFoundError(f"Файл модели не найден: {path}")
             model_meta = joblib.load(path)
             self.model = model_meta['model']
+            self.scaler = model_meta['scaler']
             self.feature_importance = model_meta.get('feature_importance')
             self.columns = model_meta['columns']
             self.high_amount_threshold = model_meta.get('high_amount_threshold')
-            logging.info(f"Модель загружена из {path}. Время: {model_meta['timestamp']}")
+            logging.info(f"Нейросеть загружена из {path}. Время: {model_meta['timestamp']}")
         except Exception as e:
-            logging.error(f"Ошибка загрузки модели: {str(e)}")
+            logging.error(f"Ошибка загрузки нейросети: {str(e)}")
             raise
 
+    # Предсказывает вероятность мошенничества для одной транзакции.
     def predict_transaction(self, transaction_data):
         try:
-            if not isinstance(transaction_data, pd.DataFrame):
-                transaction_df = pd.DataFrame([transaction_data])
-            missing_cols = set(self.columns) - set(transaction_df.columns)
-            if missing_cols:
-                raise ValueError(f"Отсутствуют колонки: {missing_cols}")
-            proba = self.model.predict_proba(transaction_df[self.columns])[0, 1]
-            return proba
+            if isinstance(transaction_data, dict):
+                X = self.preprocess_single(transaction_data)
+            else:
+                X = transaction_data
+            proba = self.model.predict(X, verbose=0)[0][0]
+            return float(proba)
         except Exception as e:
             logging.error(f"Ошибка предсказания: {str(e)}")
             raise
 
+    # Создаёт и сохраняет три графика
     def visualize_data(self, df, output_dir=None):
         output_dir = output_dir or config.VISUALIZATIONS_DIR
         try:
@@ -180,7 +226,7 @@ class FraudDetectionSystem:
             ax = sns.countplot(x=df['isFraud'])
             ax.set_xticks([0, 1])
             ax.set_xticklabels(['Легитимные (0)', 'Мошеннические (1)'])
-            plt.title('Распределение мошеннических транзакций')
+            plt.title(config.VISUALIZATION_TITLES['fraud_distribution'])
             plt.xlabel('Тип транзакции')
             plt.ylabel('Количество')
             plt.savefig(os.path.join(output_dir, 'fraud_distribution.png'))
@@ -188,12 +234,13 @@ class FraudDetectionSystem:
 
             # 2. Типы транзакций
             plt.figure(figsize=(12, 8))
-            ax = sns.countplot(x=df['type'])
-            ax.set_xticks([1, 2, 3, 4, 5])
-            ax.set_xticklabels(['Вывод наличных', 'Платеж', 'Пополнение наличными', 'Перевод', 'Дебет'])
-            plt.title('Распределение типов транзакций')
+            ax = sns.countplot(data=df, x='type', order=[1, 2, 3, 4, 5])
+            ax.set_xticks([0, 1, 2, 3, 4])
+            ax.set_xticklabels(config.TYPE_LABELS)
+            plt.title(config.VISUALIZATION_TITLES['transaction_types'])
             plt.xlabel('Тип операции')
             plt.ylabel('Количество')
+            plt.tight_layout()
             plt.savefig(os.path.join(output_dir, 'transaction_types.png'))
             plt.close()
 
@@ -201,7 +248,7 @@ class FraudDetectionSystem:
             if self.feature_importance is not None and not self.feature_importance.empty:
                 plt.figure(figsize=(12, 8))
                 sns.barplot(x='Importance', y='Feature', data=self.feature_importance.head(15))
-                plt.title('Топ-15 важных признаков')
+                plt.title(config.VISUALIZATION_TITLES['feature_importance'])
                 plt.tight_layout()
                 plt.savefig(os.path.join(output_dir, 'feature_importance.png'))
                 plt.close()
@@ -211,35 +258,32 @@ class FraudDetectionSystem:
             logging.error(f"Ошибка при визуализации данных: {str(e)}")
             raise
 
+    # Запускает тестовые сценарии из config.py
     def run_tests(self):
         if self.model is None:
             raise ValueError("Модель не обучена.")
 
-        test_cases = [
-            {
-                'description': "Обычная дневная транзакция",
-                'step': 50, 'type': 'PAYMENT', 'amount': 1000,
-                'oldbalanceOrg': 50000, 'newbalanceOrig': 49000,
-                'oldbalanceDest': 1000, 'newbalanceDest': 2000,
-            },
-            {
-                'description': "Подозрительная ночная транзакция",
-                'step': 120, 'type': 'TRANSFER', 'amount': 900000,
-                'oldbalanceOrg': 1000000, 'newbalanceOrig': 100000,
-                'oldbalanceDest': 0, 'newbalanceDest': 900000,
-            }
-        ]
-
         low = config.RISK_THRESHOLDS["low"]
         med = config.RISK_THRESHOLDS["medium"]
 
-        for case in test_cases:
+        print("\n" + "=" * 60)
+        print("ТЕСТОВЫЕ ПРЕДСКАЗАНИЯ")
+        print("=" * 60)
+
+        for case in config.TEST_CASES:
             try:
-                input_df = self.preprocess_single(case)
-                proba = self.model.predict_proba(input_df)[0, 1]
-                risk_level = "Высокий" if proba > med else "Средний" if proba > low else "Низкий"
+                X_scaled = self.preprocess_single(case)
+                proba = float(self.model.predict(X_scaled, verbose=0)[0][0])
+
+                risk_level = "ВЫСОКИЙ" if proba > med else "СРЕДНИЙ" if proba > low else "НИЗКИЙ"
+
                 logging.info(f"\n{case['description']}:")
-                logging.info(f"Вероятность мошенничества: {proba:.2%}")
+                logging.info(f"Вероятность мошенничества: {proba:.4%}")
                 logging.info(f"Уровень риска: {risk_level}")
+
+                print(f"{case['description']}:")
+                print(f"Вероятность: {proba:.4%} → {risk_level}")
+
             except Exception as e:
                 logging.error(f"Ошибка теста: {str(e)}")
+                print(f"Ошибка при тесте: {e}")

@@ -18,7 +18,7 @@ if __name__ == "__main__":
         fraud_system = FraudDetectionSystem()
 
         # Используем config
-        df = fraud_system.load_data()  # без аргумента → config.DATA_PATH
+        df = fraud_system.load_data()
         processed_df = fraud_system.preprocess_data(df)
 
         # Папки
