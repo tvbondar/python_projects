@@ -1,0 +1,171 @@
+# ============================================
+# WINDOWS ZONE.IDENTIFIER ФАЙЛЫ
+# ============================================
+*.Zone.Identifier
+*.zone.identifier
+*:Zone.Identifier
+*.crdownload
+*.tmp
+
+# ============================================
+# PYTHON
+# ============================================
+# Байт-код Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.pyd
+
+# Файлы распределения Python
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+parts/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Виртуальные окружения
+venv/
+env/
+ENV/
+.venv/
+.env/
+virtualenv/
+project2/
+miniforge3/
+
+# ============================================
+# IDE И РЕДАКТОРЫ
+# ============================================
+# VS Code
+.vscode/
+*.code-workspace
+.history/
+
+# PyCharm
+.idea/
+*.iml
+.DS_Store
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# Sublime Text
+*.sublime-workspace
+*.sublime-project
+
+# Vim
+*.swp
+*.swo
+*~
+
+# ============================================
+# DASH / PLOTLY
+# ============================================
+# Кэш Dash
+.dash_cache/
+.dash_assets/
+.cache/
+*.dash
+
+# ============================================
+# ДАННЫЕ И ФАЙЛЫ
+# ============================================
+# Логи
+*.log
+logs/
+*.log.*
+
+# Базы данных
+*.db
+*.sqlite
+*.sqlite3
+
+# Данные (если не хотите хранить большие файлы в Git)
+*.csv
+*.xlsx
+*.xls
+*.parquet
+*.feather
+*.pkl
+*.pickle
+*.h5
+*.hdf5
+
+# Изображения (если они генерируются)
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.svg
+*.bmp
+
+# ============================================
+# СИСТЕМНЫЕ ФАЙЛЫ
+# ============================================
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Linux
+.directory
+*.pid
+*.lock
+
+# Windows
+desktop.ini
+$RECYCLE.BIN/
+
+# ============================================
+# ФАЙЛЫ КОНФИГУРАЦИИ (с паролями/ключами)
+# ============================================
+.env
+.venv
+config.local.py
+*.key
+*.pem
+*.crt
+*.p12
+secrets.py
+credentials.py
+
+# ============================================
+# ВРЕМЕННЫЕ ФАЙЛЫ
+# ============================================
+*.swp
+*.swo
+*.tmp
+temp/
+tmp/
+*.temp
+
+# ============================================
+# DOCKER
+# ============================================
+docker-compose.override.yml
+.dockerignore
+Dockerfile.dev
+
+# ============================================
+# ТЕСТИРОВАНИЕ
+# ============================================
+.coverage
+.coverage.*
+.pytest_cache/
+.tox/
+htmlcov/
+*.cover
+.hypothesis/
+*.pytest_cache
